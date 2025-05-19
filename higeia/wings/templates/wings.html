@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Ala</title>
+  {% extends "master.html" %}
+  
+  {% block title %}
+    Hospital Higeia - Adicionar Ala
+  {% endblock %}
+</head>
+<body>
+  {% block content %}
+
+  <p><a class="btn btn-secondary mb-3" href="/wings/add_wing">Adicionar Ala</a></p>
+
+  <h1>Lista de Alas</h1>
+<ul>
+  {% for wing in wings %}
+    <li>{{ wing.code }} - {{ wing.name }}</li>
+  {% empty %}
+    <li>Sem alas cadastradas.</li>
+  {% endfor %}
+</ul>
+
+<!-- Paginação -->
+<div>
+  {% if wings.has_previous %}
+    <a href="?page={{ wings.previous_page_number }}">Anterior</a>
+  {% endif %}
+
+  Página {{ wings.number }} de {{ wings.paginator.num_pages }}
+
+  {% if wings.has_next %}
+    <a href="?page={{ wings.next_page_number }}">Próxima</a>
+  {% endif %}
+</div>
+
+
+  {% endblock %}
+  
+</body>
+</html>

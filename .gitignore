@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambiente virtual
+venv/
+env/
+ENV/
+
+# Arquivos de banco de dados locais
+db.sqlite3
+
+# Arquivos de logs
+*.log
+
+# Arquivos estáticos coletados
+/staticfiles/
+
+# Pasta das migrações (opcional, se quiser versionar migrações, tire essa linha)
+*/migrations/
+
+# Configurações do editor (exemplo VSCode)
+.vscode/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db

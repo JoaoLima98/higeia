@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Ala</title>
+  {% extends "master.html" %}
+  
+  {% block title %}
+    Hospital Higeia - Adicionar Ala
+  {% endblock %}
+</head>
+<body>
+  {% block content %}
+
+  <p><a class="btn btn-secondary mb-3" href="/wings">Mostrar Pacientes</a></p>
+
+  <h1>Adicionar Ala</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Adicionar Paciente">
+  </form>
+  {% endblock %}
+  
+</body>
+</html>
