@@ -20,7 +20,7 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Adicionar Paciente">
+    <input type="submit" value="{% if form.instance.pk %}Atualizar Ala{% else %}Adicionar Ala{% endif %}">
   </form>
   {% endblock %}
   

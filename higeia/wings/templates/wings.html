@@ -16,13 +16,28 @@
   <p><a class="btn btn-secondary mb-3" href="/wings/add_wing">Adicionar Ala</a></p>
 
   <h1>Lista de Alas</h1>
-<ul>
-  {% for wing in wings %}
-    <li>{{ wing.code }} - {{ wing.name }}</li>
-  {% empty %}
-    <li>Sem alas cadastradas.</li>
-  {% endfor %}
-</ul>
+  <div class="list-group-item d-flex justify-content-between align-items-center">
+    <h3 class="text-decoration-none">Ala:</h3>
+    <h3 class="text-decoration-none">Codigo:</h3>
+    <h3 class="text-decoration-none">Numero de leitos:</h3>
+    <h3 class="text-decoration-none">Ações:</h3>
+  </div>
+<ul class="list-group mb-3">
+    {% for x in wings %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{% url 'update' x.code %}" class="text-decoration-none">{{ x.name }}</a>
+        <p class="text-decoration-none">{{ x.code }}</p>
+        <p class="text-decoration-none">{{ x.number_of_beds }}</p>
+        
+        <!-- Botão de apagar estilizado -->
+        <a href="delete/{{x.code}}" class="btn btn-danger btn-sm ms-2" 
+           onclick="return confirm('Tem certeza que deseja apagar esta ala?');">
+          Apagar
+        </a>
+        
+      </li>
+    {% endfor %}
+  </ul>
 
 <!-- Paginação -->
 <div>
