@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -10,7 +11,7 @@ class Wing(models.Model):
 
   def clean(self):
     if self.number_of_beds < 1:
-      raise ValueError("Deve haver pelo menos 1 leito")
+      raise ValidationError("Deve haver pelo menos 1 leito")
   
   def save(self, *args, **kwargs):
     self.clean()
